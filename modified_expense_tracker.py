@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 from pathlib import Path
-
+import aiosqlite
 from fastmcp import FastMCP
 
 # Create MCP Server
@@ -316,4 +316,4 @@ def expense_categories() -> str:
 
 if __name__ == "__main__":
     init_db()
-    mcp.run()
+    mcp.run(transport="http", host="0.0.0.0", port=5800)
