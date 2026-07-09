@@ -8,7 +8,12 @@ from fastmcp import FastMCP
 mcp = FastMCP(name="Modified Expense Tracker")
 
 # SQLite DB path
-DB_PATH = Path(__file__).parent / "expenses.db"
+#DB_PATH = Path(__file__).parent / "expenses.db"
+import os
+from pathlib import Path
+
+DB_PATH = Path(os.getenv("EXPENSES_DB_PATH", str(Path(__file__).parent / "expenses.db")))
+
 
 # Allowed categories
 ALLOWED_CATEGORIES = [
